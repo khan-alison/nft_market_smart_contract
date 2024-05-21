@@ -9,7 +9,6 @@ import "./interfaces/IERC165.sol";
 import "./interfaces/IERC721.sol";
 import "./interfaces/IERC1155.sol";
 import "./interfaces/IERC20.sol";
-
 import "./libs/ERC165Checker.sol";
 import "./common/Events.sol";
 
@@ -17,6 +16,7 @@ contract NFTMarketplace is Upgradeable, Receiver {
     // Library for checking which type of the given collection's address is.
     using ERC165Checker for address;
 
+    constructor() {}
     /**
         @dev Execute when the user mints new NFT
         @param collection The collection's address

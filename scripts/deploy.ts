@@ -41,3 +41,13 @@ export const deployProxy = async (name: string, args: any = []) => {
   return contract;
 };
 
+async function main() {
+  await deploy("NFTMarketplace");
+  // Or if you need to deploy a proxy contract:
+  // await deployProxy("MyContract");
+}
+
+main().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});

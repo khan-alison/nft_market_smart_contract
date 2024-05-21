@@ -1,17 +1,17 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol";
+import "@openzeppelin/contracts/proxy/utils/UUPSUpgradeable.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
 import "../structs/Structs.sol";
 import "./Events.sol";
 
 abstract contract Upgradeable is
-    ReentrancyGuardUpgradeable,
+    ReentrancyGuard,
     UUPSUpgradeable,
-    OwnableUpgradeable,
+    Ownable,
     Structs,
     Events
 {
@@ -25,11 +25,12 @@ abstract contract Upgradeable is
     uint256 fee;
     uint256 constant RATIO = 1000;
 
-    function initialize() external initializer {
-        __ReentrancyGuard_init_unchained();
-        __Ownable_init_unchained();
-        __UUPSUpgradeable_init_unchained();
-    }
+    // function initialize(address _owner) internal initializer {
+    //     __ReentrancyGuard_init_unchained();
+    //     __Ownable_init_unchained();
+    //     // __Ownable_init(_owner);
+    //     __UUPSUpgradeable_init_unchained(); 
+    // }
 
     // Required by OZ
     function _authorizeUpgrade(
