@@ -9,9 +9,9 @@ import "./interfaces/IERC165.sol";
 import "./interfaces/IERC721.sol";
 import "./interfaces/IERC1155.sol";
 import "./interfaces/IERC20.sol";
+import "./interfaces/IKenToken.sol";
 import "./libs/ERC165Checker.sol";
 import "./common/Events.sol";
-
 contract NFTMarketplace is Upgradeable, Receiver {
     // Library for checking which type of the given collection's address is.
     using ERC165Checker for address;
@@ -69,7 +69,7 @@ contract NFTMarketplace is Upgradeable, Receiver {
 
         if (order.paymentToken != address(0)) {
             require(
-                order.paymentToken.isERC20Compatible(),
+                IKenToken(order.paymentToken).isERC20Compatible(),
                 "INVALID_TOKEN_ADDRESS"
             );
         }

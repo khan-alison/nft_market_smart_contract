@@ -43,6 +43,8 @@ export const deployProxy = async (name: string, args: any = []) => {
 
 async function main() {
   await deploy("NFTMarketplace");
+  await deploy("KenToken")
+  await deploy("MDT721", [process.env.MARKETPLACE!]);
   // Or if you need to deploy a proxy contract:
   // await deployProxy("MyContract");
 }

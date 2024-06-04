@@ -41,6 +41,10 @@ const config: HardhatUserConfig = {
       url: process.env.XINFIN_NETWORK_URL,
       accounts: [process.env.DEPLOYER_PRIVATE_KEY!],
     },
+    bscTestnet: {
+      url: process.env.BNB_NETWORK_URL,
+      accounts: [process.env.DEPLOYER_PRIVATE_KEY!],
+    },
     apothem: {
       url: process.env.APOTHEM_NETWORK_URL!,
       accounts: [process.env.DEPLOYER_PRIVATE_KEY!],
@@ -53,14 +57,15 @@ const config: HardhatUserConfig = {
   },
   etherscan: {
     apiKey: {
-      holesky: "G28A3K7YMT6G74E3RNBQD3JYA6FEUV8674"
+      holesky: "G28A3K7YMT6G74E3RNBQD3JYA6FEUV8674",
+      bscTestnet: "YYHX3JMTU2YJ2NG9X4EQB1CK281I979F4B"
     },
     customChains: [
       {
         network: "holesky",
         chainId: 17000,
         urls: {
-          apiURL: "https://api-holesky.etherscan.io/api",
+          apiURL: "https://api-holesky.etherscan.io/api/",
           browserURL: "https://holesky.etherscan.io",
         },
       },
