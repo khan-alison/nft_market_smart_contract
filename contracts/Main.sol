@@ -16,7 +16,10 @@ contract NFTMarketplace is Upgradeable, Receiver {
     // Library for checking which type of the given collection's address is.
     using ERC165Checker for address;
 
-    constructor() {}
+    constructor(address recipient_, uint256 fee_) {
+        recipient = recipient_;
+        fee = fee_;
+    }
     /**
         @dev Execute when the user mints new NFT
         @param collection The collection's address

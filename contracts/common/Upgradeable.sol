@@ -16,14 +16,14 @@ abstract contract Upgradeable is
     Events
 {
     mapping(address => uint256) nonces;
-    mapping(bytes32 => Order) orderInfos;
-    mapping(bytes32 => bool) activeOrders;
+    mapping(bytes32 => Order) public orderInfos;
+    mapping(bytes32 => bool) public activeOrders;
     bytes32[] public orders;
 
     mapping(address => bool) public defaultCollections;
-    address recipient;
-    uint256 fee;
-    uint256 constant RATIO = 1000;
+    address public recipient;
+    uint256 public fee;
+    uint256 public constant RATIO = 1000;
 
     // function initialize(address _owner) internal initializer {
     //     __ReentrancyGuard_init_unchained();

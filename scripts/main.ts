@@ -6,13 +6,13 @@ import { deploy, deployProxy } from "./deploy";
 import { loadContract } from "./tokens/load";
 
 const main = async () => {
-    await deploy("MDT721", [process.env.MARKETPLACE!]);
-    // const marketplace = await deployProxy("NFTMarketplace", []);
-    // const setting = await marketplace.setDefaultCollection(
-    //   process.env.MDT_721,
-    //   true
-    // );
-    // await setting.wait();
+  await deploy("MDT721", [process.env.MARKETPLACE!]);
+  // const marketplace = await deployProxy("NFTMarketplace", []);
+  // const setting = await marketplace.setDefaultCollection(
+  //   process.env.MDT_721,
+  //   true
+  // );
+  // await setting.wait();
   // await changeMinter("MDT721", process.env.MDT_721!, process.env.MARKETPLACE!);
 
   // const provider = ethers.getDefaultProvider(process.env.RPC_ENDPOINT);
@@ -57,11 +57,3 @@ main()
     console.error(err);
     process.exit(1);
   });
-
-// ["0xa751768ca19C804f24F4b6229D5c4930E1596de7"];
-// Deploying NFTMarketplace...
-// NFTMarketplace was deployed at 0x211d0Ba02e49ab710045c1c20759015d28662924
-// Deploying KenToken...
-// KenToken was deployed at 0x294FfB55C7F41D8D8984F81f2B8C37054584E40C
-// Deploying MDT721...
-// MDT721 was deployed at 0x4Ce98Fc6e30F49e1C65834e9c557FD2Aa856BC60

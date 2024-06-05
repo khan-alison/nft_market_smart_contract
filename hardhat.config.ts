@@ -43,7 +43,7 @@ const config: HardhatUserConfig = {
     },
     bscTestnet: {
       url: process.env.BNB_NETWORK_URL,
-      accounts: [process.env.DEPLOYER_PRIVATE_KEY!],
+      accounts: [process.env.DEPLOYER_PRIVATE_KEY!, process.env.PRIVATE_KEY_1!],
     },
     apothem: {
       url: process.env.APOTHEM_NETWORK_URL!,

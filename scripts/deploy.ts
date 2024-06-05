@@ -18,6 +18,8 @@ import { ethers, upgrades } from "hardhat";
 // });
 
 export const deploy = async (name: string, args: any = []) => {
+  const signer = await ethers.getSigners();
+  console.log(signer[0])
   console.log(`Deploying ${name}...`);
   const factory = await ethers.getContractFactory(name);
   const contract = await factory.deploy(...args);
@@ -45,9 +47,12 @@ async function main() {
   await deploy("NFTMarketplace");
   await deploy("KenToken")
   await deploy("MDT721", [process.env.MARKETPLACE!]);
+
   // Or if you need to deploy a proxy contract:
   // await deployProxy("MyContract");
 }
+
+
 
 main().catch((error) => {
   console.error(error);
